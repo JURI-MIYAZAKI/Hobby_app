@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">TOP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+         
+        <div class="d-flex">
+        
+        <%=form_tag(post_search_path , method: :get)do%>
+        <input class="-control me-2" name = "search"type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+        <%end%>
+
+        <!--ユーザーがログイン状態のときのみ表示-->
+        <%if session[:user_id] != nil%>
+        <li class="nav-item">
+          <%= link_to "新規投稿", post_new_path, class: 'nav-link' %>
+        </li>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <!--ユーザーがログイン状態のときのみ表示-->
+        <%= link_to "マイページ", user_show_path(session[:user_id]), class: 'nav-link btn btn-outline-success' %>
+      </div>
+      <%else%>
+      <div class="d-flex">
+        <%= link_to "会員登録", user_new_path, class: 'nav-link btn btn-outline-success' %>
+        <%= link_to "ログイン", login_path, class: 'nav-link btn btn-outline-success' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+   <!--ヘッダー（カテゴリー分け）-->
+  <header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">TOP</a>
+        </li>
+        <%@categories.each do |c|%>
+        <li class="nav-item">
+        <%=link_to c.content , post_category_path(c.id), class: "nav-link"%>
+        </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>

@@ -1,0 +1,32 @@
+
+<div class = "new">
+<h1>投稿編集</h1>
+<%if @post.del_flag != 1%>
+
+
+<%=form_for(@post,url: update_path)do |f|%>
+<%=f.label :title%>
+<%=f.text_field :title , class: "form__txt"%>
+<%=f.label :content%>
+<%=f.text_field :content , class: "form__txt"%>
+<div class="form_input">
+  <%= f.label :category_id %>
+
+    <select name="post[category_id]">
+      <option>"カテゴリを選択してください"</option>
+      <% @categories.each do |c| %>
+      <% if @post.category_id == c.id %>
+      <option value=<%= c.id %> selected><%= c.content %></option>
+      <% else %>
+      <option value=<%= c.id %>><%= c.content %></option>
+      <% end %>
+      <% end %>
+    </select>
+
+
+<%=f.submit "決定" %>
+<%end%>
+<%else%>
+<%=このページは削除されました%>
+<%end%>
+</div>

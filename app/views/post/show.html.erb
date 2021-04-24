@@ -1,0 +1,17 @@
+ <div class = "show">
+<h1>投稿詳細</h1>
+<div class = "post_show">
+<%if @post.del_flag != 1%>
+<h4><%= @post.title%></h4><br/>
+<p>内容：<%= @post.content%></p><br/>
+<p>カテゴリー：<%= @post.category.content%></p><br/>
+
+<%=link_to "編集" , edit_path%>
+<%=link_to "削除" , delete_path(@post) , method: :delete%>
+<%else%>
+<%=このページは削除されました%>
+<%end%>
+</div>
+</div>
+  </body>
+</html>

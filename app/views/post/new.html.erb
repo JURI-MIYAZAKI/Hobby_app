@@ -1,0 +1,24 @@
+ <div class = "new">
+<h1>新規投稿</h1>
+ <%=form_for(@post, url: {controller: :post, action: :create})do |f|%>
+
+<%=f.label :title%><br/>
+<%=f.text_field :title , class: "form__txt"%><br/>
+
+<%=f.label :content%><br/>
+<%=f.text_area :content , class: "form__txt"%><br/>
+
+<div class="form_input">
+  <%= f.label :category_id %><br/>
+  <!-- この下の部分の@categoryがないからmap nil error -->
+  <%= f.collection_select :category_id, @category, :id, :content,
+                                                            :include_blank => "カテゴリを選択してください" %>
+</div>
+<div class = "post_new">
+<%=f.submit "投稿" %>
+</div>
+
+<%end%>
+</div>
+  </body>
+</html>

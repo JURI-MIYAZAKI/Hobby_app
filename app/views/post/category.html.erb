@@ -1,0 +1,6 @@
+<div class = "category_show">
+<h1><%=@category.content%></h1>
+<%@post.each do |p|%>
+<%=link_to p.title , post_show_path(p.id)%><br/>
+<%end%>
+</div>

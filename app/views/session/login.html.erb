@@ -1,0 +1,34 @@
+<h1>ログイン</h1>
+
+<%=form_for(:session,url:logedin_path)do |f|%>
+
+<%=f.label :email%>
+<%=f.text_field :email , class: "form__txt"%>
+
+<%=f.label :password%>
+<%=f.text_field :password , class: "form__txt"%>
+
+<%=f.submit "ログイン" %>
+<%end%>
+
+<!--
+<%=form_for(:session,url:logedin_path)do |f|%>
+
+<%=f.label :name%>
+<%=f.text_field :name , class: "form__txt"%>
+
+<%=f.label :email%>
+<%=f.text_field :email , class: "form__txt"%>
+
+<%=f.label :password%>
+<%=f.text_field :password , class: "form__txt"%>
+
+<%=f.label :twitter_accoount%>
+<%=f.text_field :twitter_account , class: "form__txt"%>
+
+<%=f.label :image_name%>
+<%=f.text_field :image_name , class: "form__txt"%>
+
+<%=f.submit "ログイン" %>
+<%end%>
+-->

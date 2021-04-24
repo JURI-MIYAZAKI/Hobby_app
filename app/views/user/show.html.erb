@@ -1,0 +1,36 @@
+<div class = container>
+<h1 class= "text-center">マイページ</h1>
+
+<div class= "my_page">
+ <%if session[:user_id] != nil%>
+<%=User.find(session[:user_id]).email%>が利用しています<br>
+
+<ul class="shareList">
+  <li class="shareList-item">
+    <a class="icon icon-twitter" href="#" title="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+</ul>
+
+<p>投稿</p>
+<% @post.each do |post| %>
+<%if post.del_flag != 1%>
+<p>タイトル：<%= link_to(post.title,post_show_path(post.id)) %></p>
+<% end %>
+<% end %>
+
+<div>
+ <% if logged_in? %>
+    <%= link_to 'ログアウト', logout_path %>
+  <% else %>
+    <a href="/auth/twitter">ログイン</a>
+  <% end %>
+  </div>
+
+     <%=link_to "ヘルプ/お問い合わせ" , "#"%><br>
+     <%=link_to "ガイドライン" , "#"%><br>
+      <%=link_to "ログアウト" , logout_path, method: :delete%><br>
+<%end%>
+</div>
+</div>

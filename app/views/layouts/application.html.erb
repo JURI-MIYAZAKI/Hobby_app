@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html　lang="en">
+
+<head>
+  <title>HobbyApp</title>
+  <%= csrf_meta_tags %>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= render 'layouts/function' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/function' %>
+
+</html>      
+    <%= yield %>
+  </body>
+</html>
+
+<!--
+      ユーザーがログイン状態のときのみ表示
+        <li class="nav-item">
+        <%if session[:user_id] != nil%>
+          <a class="nav-link" href="/post/new">新規投稿</a>
+           <%end%>
+        </li>
+        </li>
+      </ul>
+
+      <form class="d-flex">
+      ユーザーがログイン状態のときのみ表示
+       <%if session[:user_id] != nil%>
+      <a class="nav-link" href="/user/show/:id"><button class="btn btn-outline-success" type="submit">マイページ</button></a>
+       <%end%>
+
+      <a class="nav-link" href="/user/new"><button class="btn btn-outline-success" type="submit">会員登録</button></a>
+        <a class="nav-link" href="/login"><button class="btn btn-outline-success" type="submit">ログイン</button></a>
+      </form>
+    </div>
+  </div>
+</nav>
+-->
+
+
+
+<!--
+      <%if session[:user_id] != nil%>
+      <%=User.find(session[:user_id]).email%>
+      <%=link_to "新規投稿", post_new_path%> 
+      <%end%>
+
+
+       <%if session[:user_id] != nil%>
+      <%=link_to"新規投稿",post_new_path%>
+      <%end%>
+       
+
+     -->
+

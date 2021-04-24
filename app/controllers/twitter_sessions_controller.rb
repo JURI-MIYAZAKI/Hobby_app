@@ -1,0 +1,2 @@
+class TwitterSessionsController < ApplicationController
+end
