@@ -7,6 +7,10 @@ end
 
 gem 'mysql2', '~> 0.4.4'
 
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
 # Use sqlite3 as the database for Active Record
