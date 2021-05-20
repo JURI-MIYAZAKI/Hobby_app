@@ -3,7 +3,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
+  password: banntann4
   host: localhost
 
 
@@ -17,9 +17,14 @@ test:
 
 production:
   <<: *default
-  database: sample_production
-  username: sample_app
-  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
+  database: Hobby_production
+  username: Hobby_app
+  password: banntann4
   socket: <%= Rails.application.credentials.db[:socket] %>
 
-
+production:
+  <<: *default
+  database: <%= Rails.application.credentials.db[:database] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  socket: <%= Rails.application.credentials.db[:socket] %>
